@@ -1,71 +1,71 @@
 'use strict';
 
-var litecore = module.exports;
+var florincore = module.exports;
 
 // module information
-litecore.version = 'v' + require('./package.json').version;
-litecore.versionGuard = function(version) {
+florincore.version = 'v' + require('./package.json').version;
+florincore.versionGuard = function(version) {
   if (version !== undefined) {
-    var message = 'More than one instance of litecore-lib found. ' +
-      'Please make sure to require litecore-lib and check that submodules do' +
-      ' not also include their own litecore-lib dependency.';
+    var message = 'More than one instance of florincore-lib found. ' +
+      'Please make sure to require florincore-lib and check that submodules do' +
+      ' not also include their own florincore-lib dependency.';
     throw new Error(message);
   }
 };
-litecore.versionGuard(global._litecore);
-global._litecore = litecore.version;
+florincore.versionGuard(global._florincore);
+global._florincore = florincore.version;
 
 // crypto
-litecore.crypto = {};
-litecore.crypto.BN = require('./lib/crypto/bn');
-litecore.crypto.ECDSA = require('./lib/crypto/ecdsa');
-litecore.crypto.Hash = require('./lib/crypto/hash');
-litecore.crypto.Random = require('./lib/crypto/random');
-litecore.crypto.Point = require('./lib/crypto/point');
-litecore.crypto.Signature = require('./lib/crypto/signature');
+florincore.crypto = {};
+florincore.crypto.BN = require('./lib/crypto/bn');
+florincore.crypto.ECDSA = require('./lib/crypto/ecdsa');
+florincore.crypto.Hash = require('./lib/crypto/hash');
+florincore.crypto.Random = require('./lib/crypto/random');
+florincore.crypto.Point = require('./lib/crypto/point');
+florincore.crypto.Signature = require('./lib/crypto/signature');
 
 // encoding
-litecore.encoding = {};
-litecore.encoding.Base58 = require('./lib/encoding/base58');
-litecore.encoding.Base58Check = require('./lib/encoding/base58check');
-litecore.encoding.BufferReader = require('./lib/encoding/bufferreader');
-litecore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
-litecore.encoding.Varint = require('./lib/encoding/varint');
+florincore.encoding = {};
+florincore.encoding.Base58 = require('./lib/encoding/base58');
+florincore.encoding.Base58Check = require('./lib/encoding/base58check');
+florincore.encoding.BufferReader = require('./lib/encoding/bufferreader');
+florincore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
+florincore.encoding.Varint = require('./lib/encoding/varint');
 
 // utilities
-litecore.util = {};
-litecore.util.buffer = require('./lib/util/buffer');
-litecore.util.js = require('./lib/util/js');
-litecore.util.preconditions = require('./lib/util/preconditions');
+florincore.util = {};
+florincore.util.buffer = require('./lib/util/buffer');
+florincore.util.js = require('./lib/util/js');
+florincore.util.preconditions = require('./lib/util/preconditions');
 
 // errors thrown by the library
-litecore.errors = require('./lib/errors');
+florincore.errors = require('./lib/errors');
 
 // main bitcoin library
-litecore.Address = require('./lib/address');
-litecore.Block = require('./lib/block');
-litecore.MerkleBlock = require('./lib/block/merkleblock');
-litecore.BlockHeader = require('./lib/block/blockheader');
-litecore.HDPrivateKey = require('./lib/hdprivatekey.js');
-litecore.HDPublicKey = require('./lib/hdpublickey.js');
-litecore.Networks = require('./lib/networks');
-litecore.Opcode = require('./lib/opcode');
-litecore.PrivateKey = require('./lib/privatekey');
-litecore.PublicKey = require('./lib/publickey');
-litecore.Script = require('./lib/script');
-litecore.Transaction = require('./lib/transaction');
-litecore.URI = require('./lib/uri');
-litecore.Unit = require('./lib/unit');
+florincore.Address = require('./lib/address');
+florincore.Block = require('./lib/block');
+florincore.MerkleBlock = require('./lib/block/merkleblock');
+florincore.BlockHeader = require('./lib/block/blockheader');
+florincore.HDPrivateKey = require('./lib/hdprivatekey.js');
+florincore.HDPublicKey = require('./lib/hdpublickey.js');
+florincore.Networks = require('./lib/networks');
+florincore.Opcode = require('./lib/opcode');
+florincore.PrivateKey = require('./lib/privatekey');
+florincore.PublicKey = require('./lib/publickey');
+florincore.Script = require('./lib/script');
+florincore.Transaction = require('./lib/transaction');
+florincore.URI = require('./lib/uri');
+florincore.Unit = require('./lib/unit');
 
 // dependencies, subject to change
-litecore.deps = {};
-litecore.deps.bnjs = require('bn.js');
-litecore.deps.bs58 = require('bs58');
-litecore.deps.Buffer = Buffer;
-litecore.deps.elliptic = require('elliptic');
-litecore.deps.scryptsy = require('scryptsy');
-litecore.deps._ = require('lodash');
+florincore.deps = {};
+florincore.deps.bnjs = require('bn.js');
+florincore.deps.bs58 = require('bs58');
+florincore.deps.Buffer = Buffer;
+florincore.deps.elliptic = require('elliptic');
+florincore.deps.scryptsy = require('scryptsy');
+florincore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
-litecore._HDKeyCache = require('./lib/hdkeycache');
-litecore.Transaction.sighash = require('./lib/transaction/sighash');
+florincore._HDKeyCache = require('./lib/hdkeycache');
+florincore.Transaction.sighash = require('./lib/transaction/sighash');

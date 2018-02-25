@@ -16,8 +16,8 @@ report
 .DS_Store
 
 
-litecore.js
-litecore.min.js
-litecore.js.sig
-litecore.min.js.sig
+florincore.js
+florincore.min.js
+florincore.js.sig
+florincore.min.js.sig
 tests.js
