@@ -1,5 +1,5 @@
 
 
-var litecoreTasks = require('litecore-build');
+var florincoreTasks = require('florincore-build');
 
-litecoreTasks('lib');
+florincoreTasks('lib');

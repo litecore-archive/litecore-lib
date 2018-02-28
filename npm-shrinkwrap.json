@@ -1,5 +1,5 @@
 {
-  "name": "litecore-lib",
+  "name": "florincore-lib",
   "version": "0.13.21",
   "dependencies": {
     "bn.js": {
