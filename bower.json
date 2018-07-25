@@ -1,18 +1,18 @@
 {
-  "name": "litecore-lib",
-  "main": "./litecore-lib.min.js",
-  "version": "0.13.19",
-  "homepage": "http://litecore.io",
+  "name": "bibecore-lib",
+  "main": "./bibecore-lib.min.js",
+  "version": "0.13.20",
+  "homepage": "http://bitcore.io",
   "authors": [
     "BitPay, Inc."
   ],
-  "description": "A pure, powerful core for your litecoin project.",
+  "description": "A pure, powerful core for your bibecore project.",
   "moduleType": [
     "globals"
   ],
   "keywords": [
-    "litecoin",
-    "litecore",
+    "bibecoin",
+    "bibecore",
     "btc",
     "satoshi"
   ],

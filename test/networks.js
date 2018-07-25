@@ -24,7 +24,7 @@ describe('Networks', function() {
 
     networks.disableRegtest();
     networks.testnet.networkMagic.should.deep.equal(new Buffer('fdd2c8f1', 'hex'));
-    networks.testnet.port.should.equal(19335);
+    networks.testnet.port.should.equal(27780);
     networks.testnet.dnsSeeds.should.deep.equal([
       'testnet-seed.litecointools.com',
       'seed-b.litecoin.loshan.co.uk'

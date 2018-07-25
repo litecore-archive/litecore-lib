@@ -1,70 +1,70 @@
 'use strict';
 
-var litecore = module.exports;
+var bibecore = module.exports;
 
 // module information
-litecore.version = 'v' + require('./package.json').version;
-litecore.versionGuard = function(version) {
+bibecore.version = 'v' + require('./package.json').version;
+bibecore.versionGuard = function(version) {
   if (version !== undefined) {
-    var message = 'More than one instance of litecore-lib found. ' +
-      'Please make sure to require litecore-lib and check that submodules do' +
-      ' not also include their own litecore-lib dependency.';
+    var message = 'More than one instance of bibecore-lib found. ' +
+      'Please make sure to require bibecore-lib and check that submodules do' +
+      ' not also include their own bibecore-lib dependency.';
     throw new Error(message);
   }
 };
-litecore.versionGuard(global._litecore);
-global._litecore = litecore.version;
+bibecore.versionGuard(global._bibecore);
+global._bibecore = bibecore.version;
 
 // crypto
-litecore.crypto = {};
-litecore.crypto.BN = require('./lib/crypto/bn');
-litecore.crypto.ECDSA = require('./lib/crypto/ecdsa');
-litecore.crypto.Hash = require('./lib/crypto/hash');
-litecore.crypto.Random = require('./lib/crypto/random');
-litecore.crypto.Point = require('./lib/crypto/point');
-litecore.crypto.Signature = require('./lib/crypto/signature');
+bibecore.crypto = {};
+bibecore.crypto.BN = require('./lib/crypto/bn');
+bibecore.crypto.ECDSA = require('./lib/crypto/ecdsa');
+bibecore.crypto.Hash = require('./lib/crypto/hash');
+bibecore.crypto.Random = require('./lib/crypto/random');
+bibecore.crypto.Point = require('./lib/crypto/point');
+bibecore.crypto.Signature = require('./lib/crypto/signature');
 
 // encoding
-litecore.encoding = {};
-litecore.encoding.Base58 = require('./lib/encoding/base58');
-litecore.encoding.Base58Check = require('./lib/encoding/base58check');
-litecore.encoding.BufferReader = require('./lib/encoding/bufferreader');
-litecore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
-litecore.encoding.Varint = require('./lib/encoding/varint');
+bibecore.encoding = {};
+bibecore.encoding.Base58 = require('./lib/encoding/base58');
+bibecore.encoding.Base58Check = require('./lib/encoding/base58check');
+bibecore.encoding.BufferReader = require('./lib/encoding/bufferreader');
+bibecore.encoding.BufferWriter = require('./lib/encoding/bufferwriter');
+bibecore.encoding.Varint = require('./lib/encoding/varint');
 
 // utilities
-litecore.util = {};
-litecore.util.buffer = require('./lib/util/buffer');
-litecore.util.js = require('./lib/util/js');
-litecore.util.preconditions = require('./lib/util/preconditions');
+bibecore.util = {};
+bibecore.util.buffer = require('./lib/util/buffer');
+bibecore.util.js = require('./lib/util/js');
+bibecore.util.preconditions = require('./lib/util/preconditions');
 
 // errors thrown by the library
-litecore.errors = require('./lib/errors');
+bibecore.errors = require('./lib/errors');
 
 // main bitcoin library
-litecore.Address = require('./lib/address');
-litecore.Block = require('./lib/block');
-litecore.MerkleBlock = require('./lib/block/merkleblock');
-litecore.BlockHeader = require('./lib/block/blockheader');
-litecore.HDPrivateKey = require('./lib/hdprivatekey.js');
-litecore.HDPublicKey = require('./lib/hdpublickey.js');
-litecore.Networks = require('./lib/networks');
-litecore.Opcode = require('./lib/opcode');
-litecore.PrivateKey = require('./lib/privatekey');
-litecore.PublicKey = require('./lib/publickey');
-litecore.Script = require('./lib/script');
-litecore.Transaction = require('./lib/transaction');
-litecore.URI = require('./lib/uri');
-litecore.Unit = require('./lib/unit');
+bibecore.Address = require('./lib/address');
+bibecore.Block = require('./lib/block');
+bibecore.MerkleBlock = require('./lib/block/merkleblock');
+bibecore.BlockHeader = require('./lib/block/blockheader');
+bibecore.HDPrivateKey = require('./lib/hdprivatekey.js');
+bibecore.HDPublicKey = require('./lib/hdpublickey.js');
+bibecore.Networks = require('./lib/networks');
+bibecore.Opcode = require('./lib/opcode');
+bibecore.PrivateKey = require('./lib/privatekey');
+bibecore.PublicKey = require('./lib/publickey');
+bibecore.Script = require('./lib/script');
+bibecore.Transaction = require('./lib/transaction');
+bibecore.URI = require('./lib/uri');
+bibecore.Unit = require('./lib/unit');
 
 // dependencies, subject to change
-litecore.deps = {};
-litecore.deps.bnjs = require('bn.js');
-litecore.deps.bs58 = require('bs58');
-litecore.deps.Buffer = Buffer;
-litecore.deps.elliptic = require('elliptic');
-litecore.deps.scryptsy = require('scryptsy');
-litecore.deps._ = require('lodash');
+bibecore.deps = {};
+bibecore.deps.bnjs = require('bn.js');
+bibecore.deps.bs58 = require('bs58');
+bibecore.deps.Buffer = Buffer;
+bibecore.deps.elliptic = require('elliptic');
+bibecore.deps.scryptsy = require('scryptsy');
+bibecore.deps._ = require('lodash');
 
 // Internal usage, exposed for testing/advanced tweaking
-litecore.Transaction.sighash = require('./lib/transaction/sighash');
+bibecore.Transaction.sighash = require('./lib/transaction/sighash');
