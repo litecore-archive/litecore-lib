@@ -2,9 +2,9 @@
 
 ## Principles
 
-Litecoin is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Litecoin network allows for highly resilient litecoin infrastructure, and the developer community needs reliable, open-source tools to implement litecoin apps and services. Litecore provides a reliable API for JavaScript apps that need to interface with Litecoin.
+Litecoin is a powerful new peer-to-peer platform for the next generation of financial technology. The decentralized nature of the Litecoin network allows for highly resilient litecoin infrastructure, and the developer community needs reliable, open-source tools to implement litecoin apps and services. bibecore provides a reliable API for JavaScript apps that need to interface with Litecoin.
 
-To get started, just `npm install litecore` or `bower install litecore`.
+To get started, just `npm install bibecore` or `bower install bibecore`.
 
 # Documentation Index
 
@@ -36,7 +36,7 @@ To get started, just `npm install litecore` or `bower install litecore`.
 Some functionality is implemented as a module that can be installed separately:
 
 * [Payment Protocol Support](https://github.com/bitpay/bitcore-payment-protocol)
-* [Peer to Peer Networking](https://github.com/litecoin-project/litecore-p2p)
+* [Peer to Peer Networking](https://github.com/litecoin-project/bibecore-p2p)
 * [Bitcoin Core JSON-RPC](https://github.com/bitpay/bitcoind-rpc)
 * [Payment Channels](https://github.com/bitpay/bitcore-channel)
 * [Mnemonics](https://github.com/bitpay/bitcore-mnemonic)
@@ -49,11 +49,11 @@ Some functionality is implemented as a module that can be installed separately:
 ## Create and Save a Private Key
 
 ```javascript
-var privateKey = new litecore.PrivateKey();
+var privateKey = new bibecore.PrivateKey();
 
 var exported = privateKey.toWIF();
 // e.g. L3T1s1TYP9oyhHpXgkyLoJFGniEgkv2Jhi138d7R2yJ9F4QdDU2m
-var imported = litecore.PrivateKey.fromWIF(exported);
+var imported = bibecore.PrivateKey.fromWIF(exported);
 var hexa = privateKey.toString();
 // e.g. 'b9de6e778fe92aa7edb69395556f843f1dce0448350112e14906efc2a80fa61a'
 ```
@@ -68,7 +68,7 @@ var address = privateKey.toAddress();
 
 ```javascript
 // Build a 2-of-3 address from public keys
-var p2shAddress = new litecore.Address([publicKey1, publicKey2, publicKey3], 2);
+var p2shAddress = new bibecore.Address([publicKey1, publicKey2, publicKey3], 2);
 ```
 
 ## Request a Payment
@@ -78,7 +78,7 @@ var paymentInfo = {
   address: '1DNtTk4PUCGAdiNETAzQFWZiy2fCHtGnPx',
   amount: 120000 //satoshis
 };
-var uri = new litecore.URI(paymentInfo).toString();
+var uri = new bibecore.URI(paymentInfo).toString();
 ```
 
 ## Create a Transaction

@@ -16,22 +16,22 @@ describe('URI', function() {
 
     URI.parse.bind(URI, 'badURI').should.throw(TypeError);
 
-    uri = URI.parse('litecoin:');
+    uri = URI.parse('bibecoin:');
     expect(uri.address).to.be.undefined();
     expect(uri.amount).to.be.undefined();
     expect(uri.otherParam).to.be.undefined();
 
-    uri = URI.parse('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
+    uri = URI.parse('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
     uri.address.should.equal('LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
     expect(uri.amount).to.be.undefined();
     expect(uri.otherParam).to.be.undefined();
 
-    uri = URI.parse('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=123.22');
+    uri = URI.parse('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=123.22');
     uri.address.should.equal('LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
     uri.amount.should.equal('123.22');
     expect(uri.otherParam).to.be.undefined();
 
-    uri = URI.parse('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=123.22' +
+    uri = URI.parse('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=123.22' +
                     '&other-param=something&req-extra=param');
     uri.address.should.equal('LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
     uri.amount.should.equal('123.22');
@@ -41,24 +41,24 @@ describe('URI', function() {
 
   // TODO: Split this and explain tests
   it('URIs can be validated statically (test vector)', function() {
-    URI.isValid('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3').should.equal(true);
-    URI.isValid('litecoin:mkYY5NRvikVBY1EPtaq9fAFgquesdjqECw').should.equal(true);
+    URI.isValid('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3').should.equal(true);
+    URI.isValid('bibecoin:mkYY5NRvikVBY1EPtaq9fAFgquesdjqECw').should.equal(true);
 
-    URI.isValid('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2')
+    URI.isValid('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2')
                 .should.equal(true);
-    URI.isValid('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&other=param')
+    URI.isValid('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&other=param')
                 .should.equal(true);
-    URI.isValid('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&req-other=param',
+    URI.isValid('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&req-other=param',
                 ['req-other']).should.equal(true);
-    URI.isValid('litecoin:mmrqEBJxUCf42vdb3oozZtyz5mKr3Vb2Em?amount=0.1&' +
+    URI.isValid('bibecoin:mmrqEBJxUCf42vdb3oozZtyz5mKr3Vb2Em?amount=0.1&' +
                 'r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu').should.equal(true);
 
-    URI.isValid('litecoin:').should.equal(false);
-    URI.isValid('litecoin:badUri').should.equal(false);
-    URI.isValid('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=bad').should.equal(false);
-    URI.isValid('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&req-other=param')
+    URI.isValid('bibecoin:').should.equal(false);
+    URI.isValid('bibecoin:badUri').should.equal(false);
+    URI.isValid('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=bad').should.equal(false);
+    URI.isValid('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&req-other=param')
                 .should.equal(false);
-    URI.isValid('litecoin:?r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu')
+    URI.isValid('bibecoin:?r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu')
                 .should.equal(false);
   });
 
@@ -69,35 +69,35 @@ describe('URI', function() {
   });
 
   it('do not need new keyword', function() {
-    var uri = URI('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
+    var uri = URI('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
     uri.should.be.instanceof(URI);
   });
 
-  describe('instantiation from litecoin uri', function() {
+  describe('instantiation from bibecoin uri', function() {
     /* jshint maxstatements: 25 */
     var uri;
 
     it('parses address', function() {
-      uri = new URI('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
+      uri = new URI('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
       uri.address.should.be.instanceof(bitcore.Address);
       uri.network.should.equal(Networks.livenet);
     });
 
     it('parses amount', function() {
-      uri = URI.fromString('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=123.22');
+      uri = URI.fromString('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=123.22');
       uri.address.toString().should.equal('LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
       uri.amount.should.equal(12322000000);
       expect(uri.otherParam).to.be.undefined();
     });
 
     it('parses a testnet address', function() {
-      uri = new URI('litecoin:mkYY5NRvikVBY1EPtaq9fAFgquesdjqECw');
+      uri = new URI('bibecoin:mkYY5NRvikVBY1EPtaq9fAFgquesdjqECw');
       uri.address.should.be.instanceof(bitcore.Address);
       uri.network.should.equal(Networks.testnet);
     });
 
     it('stores unknown parameters as "extras"', function() {
-      uri = new URI('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&other=param');
+      uri = new URI('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&other=param');
       uri.address.should.be.instanceof(bitcore.Address);
       expect(uri.other).to.be.undefined();
       uri.extras.other.should.equal('param');
@@ -105,12 +105,12 @@ describe('URI', function() {
 
     it('throws error when a required feature is not supported', function() {
       (function() {
-        return new URI('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&other=param&req-required=param');
+        return new URI('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&other=param&req-required=param');
       }).should.throw(Error);
     });
 
     it('has no false negative when checking supported features', function() {
-      uri = new URI('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&other=param&' +
+      uri = new URI('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.2&other=param&' +
                     'req-required=param', ['req-required']);
       uri.address.should.be.instanceof(bitcore.Address);
       uri.amount.should.equal(120000000);
@@ -166,12 +166,12 @@ describe('URI', function() {
   });
 
   it('should support double slash scheme', function() {
-    var uri = new URI('litecoin://LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
+    var uri = new URI('bibecoin://LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
     uri.address.toString().should.equal('LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
   });
 
   it('should input/output String', function() {
-    var str = 'litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?' +
+    var str = 'bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?' +
               'message=Donation%20for%20project%20xyz&label=myLabel&other=xD';
     URI.fromString(str).toString().should.equal(str);
   });
@@ -187,12 +187,12 @@ describe('URI', function() {
   });
 
   it('should support numeric amounts', function() {
-    var uri = new URI('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=12.10001');
+    var uri = new URI('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=12.10001');
     expect(uri.amount).to.be.equal(1210001000);
   });
 
   it('should support extra arguments', function() {
-    var uri = new URI('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?' +
+    var uri = new URI('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?' +
                       'message=Donation%20for%20project%20xyz&label=myLabel&other=xD');
 
     should.exist(uri.message);
@@ -209,7 +209,7 @@ describe('URI', function() {
     new URI({
       address: 'LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3',
     }).toString().should.equal(
-      'litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3'
+      'bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3'
     );
 
     new URI({
@@ -218,27 +218,27 @@ describe('URI', function() {
       message: 'Hello World',
       something: 'else'
     }).toString().should.equal(
-      'litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.10001&message=Hello%20World&something=else'
+      'bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3?amount=1.10001&message=Hello%20World&something=else'
     );
 
   });
 
   it('should be case insensitive to protocol', function() {
-    var uri1 = new URI('lItEcOin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
-    var uri2 = new URI('litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
+    var uri1 = new URI('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
+    var uri2 = new URI('bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3');
 
     uri1.address.toString().should.equal(uri2.address.toString());
   });
 
   it('writes correctly the "r" parameter on string serialization', function() {
-    var originalString = 'litecoin:mmrqEBJxUCf42vdb3oozZtyz5mKr3Vb2Em?amount=0.1&' +
+    var originalString = 'bibecoin:mmrqEBJxUCf42vdb3oozZtyz5mKr3Vb2Em?amount=0.1&' +
                          'r=https%3A%2F%2Ftest.bitpay.com%2Fi%2F6DKgf8cnJC388irbXk5hHu';
     var uri = new URI(originalString);
     uri.toString().should.equal(originalString);
   });
 
   it('displays nicely on the console (#inspect)', function() {
-    var uri = 'litecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3';
+    var uri = 'bibecoin:LXc3QtfC179bxQV83r3XaFKfsgXsKGeZv3';
     var instance = new URI(uri);
     instance.inspect().should.equal('<URI: ' + uri + '>');
   });

@@ -1,5 +1,5 @@
 
 
-var litecoreTasks = require('litecore-build');
+var bibecoreTasks = require('bibecore-build');
 
-litecoreTasks('lib');
+bibecoreTasks('lib');
