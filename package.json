@@ -1,6 +1,6 @@
 {
-  "name": "litecore-lib",
-  "version": "0.13.21",
+  "name": "litecore-lib-st",
+  "version": "0.1.0",
   "description": "A pure and powerful JavaScript Litecoin library.",
   "author": "BitPay <dev@bitpay.com>",
   "main": "index.js",
@@ -83,7 +83,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/litecoin-project/litecore-lib.git"
+    "url": "https://github.com/Bjblue/litecore-lib-st.git"
   },
   "browser": {
     "request": "browser-request"
